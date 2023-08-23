@@ -1,0 +1,48 @@
+package in.co.rays.ctl;
+
+import java.io.IOException;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import in.co.rays.bean.MarksheetBean;
+import in.co.rays.model.MarksheetModel;
+@WebServlet("/MarksheetLoginCtl")
+public class MarksheetLoginCtl extends HttpServlet {
+
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		String op = req.getParameter("operation");
+		if(op !=null) {
+			HttpSession  session = req.getSession();
+			session.invalidate();
+		}
+		resp.sendRedirect("MarksheetLoginView.jsp");
+	}
+	
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		
+		String op = req.getParameter("operation");
+		if(op.equals("SignIn")) {
+			
+			String name = req.getParameter("Name");
+			String roll_no = req.getParameter("RollNumber");
+			
+			MarksheetModel model = new MarksheetModel();
+			
+			try {
+				MarksheetBean bean = model.findByRoll(Integer.parseInt(roll_no));
+			} catch (Exception e) {
+
+
+				
+				e.printStackTrace();
+			}
+		}
+	}
+}

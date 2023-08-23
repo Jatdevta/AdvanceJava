@@ -1,0 +1,8 @@
+Driver=com.mysql.cj.jdbc.Driver
+url = jdbc:mysql://localhost:3306/advance_java
+user=root
+password=root
+initial=5
+acquire=5
+maximum=30
+greeting = \u30B8\u30A7\u30A4\u30FB\u30B7\u30E5\u30EA\u30FC\u30FB\u30E9\u30E0

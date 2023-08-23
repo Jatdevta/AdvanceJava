@@ -1,0 +1,70 @@
+package in.co.rays.library;
+
+import java.text.SimpleDateFormat;
+
+import in.co.rays.marksheet.MarksheetModel;
+
+public class TestLibrary {
+	public static void main(String[] args) throws Exception {
+		TestAdd();
+		//TestUpdate();
+		//testDelete();
+	}
+
+	private static void TestAdd() throws Exception {
+		
+		String dob = "1998-08-09";
+
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+
+		LibraryBean bean = new LibraryBean();
+		
+		bean.setId(11);
+		bean.setStudent_name("kalam");
+		bean.setFees(1050);
+		bean.setMobile_no(188451234);
+		bean.setAddress("panjim");
+		bean.setSeat_no(231);
+		bean.setDob(sdf.parse(dob));
+		
+		
+		
+	
+		
+		LibraryModel model = new LibraryModel();
+		
+		model.Add(bean);
+		
+	}
+	
+private static void TestUpdate() throws Exception {
+	
+	String dob = "2000-01-02";
+	
+	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+	
+	LibraryBean bean = new LibraryBean();
+	
+	
+	
+	bean.setStudent_name("dddd");
+	bean.setFees(2450);
+	bean.setAddress("manawar");
+	bean.setSeat_no(259);
+	bean.setMobile_no(21231232);
+	bean.setDob(sdf.parse(dob));
+	bean.setId(12);
+	
+	LibraryModel model = new LibraryModel();
+	
+	model.Update(bean);
+		
+	}
+
+private static void testDelete() throws Exception {
+	  LibraryModel model = new LibraryModel();
+	  model.delte(11);
+		
+		  }
+}
+

@@ -1,0 +1,15 @@
+package in.co.rays.bundle;
+
+import java.util.ResourceBundle;
+
+public class TestBundle {
+	ResourceBundle rb = ResourceBundle.getBundle("in.co.rays.bundle");
+	
+	System.out.println(rb.getString("url"));
+	System.out.println(rb.getString("user"));
+	System.out.println(Integer.parseInt(rb.getString("initial")));
+	System.out.println(Integer.parseInt(rb.getString("acquire")));
+	System.out.println(Integer.parseInt(rb.getString("maximum")));
+
+
+}

@@ -1,0 +1,8 @@
+package in.co.rays.bundle;
+
+import java.util.ResourceBundle;
+
+public class TestBundle {
+	ResourceBundle rb = 
+
+}

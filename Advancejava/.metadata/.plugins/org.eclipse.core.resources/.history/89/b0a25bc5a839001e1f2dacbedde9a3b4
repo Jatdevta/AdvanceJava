@@ -1,0 +1,20 @@
+package in.co.rays.model;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+
+import in.co.rays.bean.LibraryBean;
+import in.co.rays.util.JDBCDataSource;
+
+public class LibraryModel {
+
+	private static void add(LibraryBean bean) {
+		
+		Connection con = JDBCDataSource.getConnection();
+		
+	PreparedStatement ps = con.PreparedStatement("insert into values(?,?,?,?,?,?)"");
+		
+		
+	}
+	
+}

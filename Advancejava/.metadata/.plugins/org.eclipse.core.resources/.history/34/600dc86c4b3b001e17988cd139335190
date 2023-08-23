@@ -1,0 +1,80 @@
+package in.co.rays.test;
+
+import java.text.SimpleDateFormat;
+import java.util.Iterator;
+import java.util.List;
+
+import in.co.rays.bean.LibraryBean;
+import in.co.rays.model.LibraryModel;
+
+public class TestLibrary {
+	public static void main(String[] args) throws Exception {
+		
+		TestAdd();
+		//TestUpdate();
+		//TestSearch();
+	}
+
+	
+	private static void TestSearch() throws Exception {
+	LibraryBean bean = new LibraryBean();
+	bean.setSeat_no(203);
+	LibraryModel model = new LibraryModel();
+	
+	List list = model.Search(bean);
+	Iterator it = list.iterator();
+	while (it.hasNext()) {
+		bean = (LibraryBean) it.next();
+		System.out.println("\t"+bean.getId());
+		 System.out.print("\t"+bean.getStudent_name());
+		 System.out.print("\t"+bean.getFees());
+		 System.out.print("\t"+bean.getMobile_no());
+		 System.out.println("\t"+bean.getAddress());
+		 System.out.print(bean.getSeat_no());
+	 }
+	}
+
+	
+
+
+	private static void TestAdd() throws Exception {
+		
+		String d = "2222-01-01";
+		
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		
+		LibraryBean bean = new LibraryBean();
+		
+		bean.setId(12);
+		bean.setStudent_name("kalam");
+		bean.setFees(1050);
+		bean.setMobile_no(188451234);
+		bean.setAddress("panjim");
+		bean.setSeat_no(231);
+		bean.setDob(sdf.parse(d));
+	
+		
+		LibraryModel model = new LibraryModel();
+		
+		model.add(bean);
+		
+	}
+	
+private static void TestUpdate() throws Exception {
+	
+	LibraryBean bean = new LibraryBean();
+	bean.setId(7);
+	bean.setStudent_name("kris");
+	bean.setFees(2450);
+	bean.setAddress("manawar");
+	bean.setSeat_no(259);
+	bean.setMobile_no(21231232);
+
+	LibraryModel model = new LibraryModel();
+	
+	model.update(bean);
+		
+	}
+
+
+}

@@ -1,0 +1,13 @@
+package in.co.rays.library;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+
+import in.co.rays.util.JDBCDataSource;
+
+public class LibraryModel {
+public static void Add() throws Exception {
+	Connection cn = JDBCDataSource.getConnection();
+	PreparedStatement ps = cn.prepareStatement("insert into library(?,?,?,?,?)");
+}
+}

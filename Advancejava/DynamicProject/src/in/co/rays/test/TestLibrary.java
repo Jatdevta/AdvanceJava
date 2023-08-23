@@ -1,0 +1,70 @@
+package in.co.rays.test;
+
+import java.text.SimpleDateFormat;
+
+import in.co.rays.bean.LibraryBean;
+import in.co.rays.bean.UserBean;
+import in.co.rays.model.LibraryModel;
+
+public class TestLibrary {
+	public static void main(String[] args) throws Exception {
+		   TestAdd();
+		//TestUpdate();
+		//testDelete();
+	}
+
+	private static void TestAdd() throws Exception {
+		
+		String dob = "1998-08-09";
+
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+
+		LibraryBean bean = new LibraryBean();
+		
+		bean.setId(10);
+		bean.setStudent_name("kalam");
+		bean.setFees(1050);
+		bean.setMobile_no(188451234);
+		bean.setAddress("panjim");
+		bean.setSeat_no(231);
+		bean.setDob(sdf.parse(dob));
+		
+		
+		
+	
+		
+		LibraryModel model = new LibraryModel();
+		
+		model.Add(bean);
+		
+	}
+	
+private static void TestUpdate() throws Exception {
+	
+	LibraryModel model = new LibraryModel();
+	
+	LibraryBean bean = model.findByPk(1);
+	
+		
+		if(bean !=null) {
+			//bean.setFirstName("Raj");
+			//bean.setLastName("Kapoor");
+			
+			bean.setAddress("rajgad");
+		
+			model.Update(bean);
+			
+			System.out.println("user exit & updated ");
+			}
+		else {
+			System.out.println("user not Exist.....!!!");
+		}
+	}
+
+private static void testDelete() throws Exception {
+	  LibraryModel model = new LibraryModel();
+	  model.delte(10);
+		
+		  }
+}
+

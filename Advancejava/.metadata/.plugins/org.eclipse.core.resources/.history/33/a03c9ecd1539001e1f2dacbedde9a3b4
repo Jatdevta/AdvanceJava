@@ -1,0 +1,16 @@
+package in.co.rays.marksheet;
+
+import java.sql.Connection;
+import java.util.ResourceBundle;
+
+import in.co.rays.util.JDBCDataSource;
+
+public class MarksheetModel {
+	 
+	private static void add() {
+	
+		Connection cn = JDBCDataSource.getConnection();
+		
+	}
+
+}

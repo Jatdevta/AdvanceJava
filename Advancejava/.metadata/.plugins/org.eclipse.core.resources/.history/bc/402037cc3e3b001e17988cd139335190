@@ -1,0 +1,30 @@
+package in.co.rays.library;
+
+import java.sql.Connection;
+import java.sql.Date;
+import java.sql.PreparedStatement;
+
+import in.co.rays.util.JDBCDataSource;
+
+public class LibraryModel {
+public static void Add(LibraryBean bean) throws Exception {
+	Connection cn = JDBCDataSource.getConnection();
+	PreparedStatement ps = cn.prepareStatement("insert into library(?,?,?,?,?,?,?)");
+	ps.setInt(1, bean.getId());
+	ps.setString(2, bean.getStudent_name());
+	ps.setInt(3, bean.getFees());
+	ps.setInt(4, bean.getMobile_no());
+	ps.setString(5, bean.getAddress());
+	ps.setInt(6, bean.getSeat_no());
+	ps.setDate(7, new java.sql.Date(bean.getDob().getTime());
+	
+}
+  public static void Update(LibraryBean bean) throws Exception {
+	  
+	 Connection cn = JDBCDataSource.getConnection();
+	 
+	 PreparedStatement ps = cn.prepareStatement("update library set student_name = ?,fees = ?,mobile_no = ?,address = ?,seat_no = ?,dob = ? where id = ? ");
+		
+	  
+  }
+}

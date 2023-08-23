@@ -1,0 +1,8 @@
+INDEX VERSION 1.4+C:\Rays software\Workspace\advance workspace\Advancejava\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+689534576.index
+2137144714.index
+1246426683.index
+3653449642.index
+3599726042.index
+4235708376.index
+3727531826.index

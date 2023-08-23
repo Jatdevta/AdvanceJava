@@ -1,0 +1,85 @@
+package in.co.rays.jdbc;
+
+import java.util.Iterator;
+import java.util.List;
+
+import in.co.rays.marksheet.MarksheetBean;
+import in.co.rays.marksheet.MarksheetModel;
+
+public class TestMarksheet {
+	
+	public static void main(String[] args) throws Exception { 
+		
+		//testAdd();
+	  //testDelete();
+	 // testUpdate();
+		//testSearch();
+		
+	}
+
+	  private static void testSearch() throws Exception {
+
+		  MarksheetModel model = new MarksheetModel();
+		  
+		  List  list = model.seach();
+		  
+		  Iterator it = list.iterator();
+		  
+		  while(it.hasNext()) {
+			  
+			MarksheetBean bean = (MarksheetBean) it.next();
+			
+			System.out.print(bean.getId());
+			System.out.print("\t"+ bean.getName());
+			System.out.print("\t"+bean.getRollnumber());
+			System.out.print("\t"+bean.getPhysics());
+			System.out.print("\t"+bean.getChemistry());
+			System.out.println("\t"+bean.getMaths());
+			  
+			  
+		  }
+		  
+		  
+		  
+	}
+
+	private static void testUpdate() throws Exception {
+
+		  MarksheetBean bean = new MarksheetBean();
+		  
+		  bean.setId(2);
+		  bean.setName("Radhe");
+		  bean.setRollnumber(102);;
+		  bean.setPhysics(87);
+		  bean.setChemistry(78);
+		  bean.setMaths(89);
+		  
+		  MarksheetModel model = new MarksheetModel();
+		  
+		  model.update(bean);
+	}
+
+	private static void testDelete() throws Exception {
+  MarksheetModel model = new MarksheetModel();
+  model.delte(3);
+	
+	  }
+
+	public static void testAdd() throws Exception {
+		  
+		  MarksheetBean bean = new MarksheetBean();
+		  
+		  bean.setId(4);
+		  bean.setName("Raj");
+		  bean.setRollnumber(101);
+		  bean.setChemistry(56);
+		  bean.setPhysics(70);
+		  bean.setMaths(89);
+		  
+		  MarksheetModel model = new MarksheetModel();
+		  model.add(bean);
+		  
+	  }
+	
+	
+}

@@ -1,0 +1,23 @@
+package in.co.rays.bean;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.Statement;
+
+public class createtable {
+	public static void main(String[] args) {
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/advance_java","root","root");
+			String q="Create table user(id int primary key, FirstName varchar(50), LastName varchar(50), LoginId varchar(50) , Password varchar(50) , DOB DateTime , Address varchar(50))";
+			Statement stmt=con.createStatement();
+			stmt.executeUpdate(q);
+			System.out.println("Task Complete");
+			con.close();
+			
+		}
+		catch(Exception e) {
+			System.out.println(e);
+		}
+	}
+}

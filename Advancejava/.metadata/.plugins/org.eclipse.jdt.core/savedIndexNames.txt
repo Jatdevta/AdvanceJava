@@ -1,0 +1,12 @@
+INDEX VERSION 1.131+C:\Rays software\Workspace\advance workspace\Advancejava\.metadata\.plugins\org.eclipse.jdt.core
+3344894521.index
+1024446143.index
+3750317149.index
+3535206466.index
+3727531826.index
+2751044774.index
+3480461590.index
+82379495.index
+2773424974.index
+2262894515.index
+2882877321.index

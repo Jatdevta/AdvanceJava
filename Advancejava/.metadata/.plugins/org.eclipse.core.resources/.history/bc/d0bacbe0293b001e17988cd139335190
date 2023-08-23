@@ -1,0 +1,101 @@
+package in.co.rays.model;
+
+import java.sql.Connection;
+import java.sql.Date;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
+
+import in.co.rays.bean.LibraryBean;
+import in.co.rays.util.JDBCDataSource;
+
+public class LibraryModel {
+
+	public static void add(LibraryBean bean) throws Exception {
+		
+		Connection con = JDBCDataSource.getConnection();
+		
+	PreparedStatement ps = con.prepareStatement("insert into Library values(?,?,?,?,?,?)");
+	
+	ps.setInt(1, bean.getId());
+	ps.setString(2, bean.getStudent_name());
+	ps.setInt(3, bean.getFees());
+	ps.setInt(4, bean.getMobile_no());
+	ps.setString(5, bean.getAddress());	
+	ps.setInt(6, bean.getSeat_no());
+	
+	int i = ps.executeUpdate();
+	
+	System.out.println("Data inserted = "+i);
+	
+	}
+	public static void update(LibraryBean bean) throws Exception {
+		
+		Connection cn = JDBCDataSource.getConnection();
+		
+		PreparedStatement ps = cn.prepareStatement("update library set student_name = ?,fess = ?,mobile_no = ?,address = ?,seat_no = ? where id = ? ");
+		
+	
+		ps.setString(1, bean.getStudent_name());
+		ps.setInt(2, bean.getFees());
+		ps.setInt(3, bean.getMobile_no());
+		ps.setString(4, bean.getAddress());
+		ps.setInt(5, bean.getSeat_no());
+		ps.setInt(6, bean.getId());
+		
+		int i = ps.executeUpdate();
+		System.out.println("Data updated = "+i);
+		
+	}
+	public List Search (LibraryBean bean) throws Exception {
+		
+		
+	Connection cn = JDBCDataSource.getConnection();
+		StringBuffer sql = new StringBuffer("select * from library where 1=1");
+		
+		if (bean != null) {
+
+			if (bean.getStudent_name() != null && bean.getStudent_name().length() > 0) {
+
+				sql.append(" and student_name like '" + bean.getStudent_name() + "%'");
+
+			}
+			if (bean.getId() != 0 && bean.getId() > 0) {
+
+				sql.append(" and id = " + bean.getId());
+
+			}
+			if (bean.getSeat_no() != 0 && bean.getSeat_no() > 0) {
+
+				sql.append(" and seat_no like '" + bean.getSeat_no() + "%'");
+			}
+
+			
+			
+			if (bean.getAddress() != null && bean.getAddress().length()>0) {
+				sql.append(" and address like '" + bean.getAddress() + "%'");
+			}
+		}
+		
+		System.out.println(sql.toString());
+		PreparedStatement ps = cn.prepareStatement(sql.toString());
+		
+		ResultSet rs = ps.executeQuery();
+		
+		List list = new ArrayList();
+		while(rs.next()) {
+			bean = new LibraryBean();
+			bean.setId(rs.getInt(1));
+			bean.setStudent_name(rs.getString(2));
+			bean.setFees(rs.getInt(3));
+			bean.setMobile_no(rs.getInt(4));
+			bean.setAddress(rs.getString(5));
+			bean.setSeat_no(rs.getInt(6));
+			
+			list.add(bean);
+			}
+		return list;
+		}
+	
+}

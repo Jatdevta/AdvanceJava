@@ -1,0 +1,8 @@
+package in.co.rays.ctl;
+
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+@WebServlet("/ForgetPassword")
+public class ForgetPassword extends HttpServlet{
+
+}

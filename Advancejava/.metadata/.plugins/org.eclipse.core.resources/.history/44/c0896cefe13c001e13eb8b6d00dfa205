@@ -1,0 +1,52 @@
+package in.co.rays.ctl;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+@WebServlet("/FirstServlet")
+public class FirstServlet extends HttpServlet {
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		
+	//	System.out.println("In First Servlet Do Get");
+		resp.setContentType("text/html");
+		
+		PrintWriter out = resp.getWriter();
+		
+		
+		out.println("<th><h2>firstName</h2>");
+		out.println("<td><input type = 'text' name ='firstName'></td");
+		
+		out.println("<th><h2>lastName</h2>");
+		out.println("<td><input type = 'text' name ='lastName'></td");
+		
+		out.println("<th><h2>loginid</h2>");
+		out.println("<td><input type = 'text' name ='loginId'></td");
+		
+		out.println("<th><h2>password</h2>");
+		out.println("<td><input type = 'text' name ='password'></td");
+		
+		out.println("<th><h2>dob</h2>");
+		out.println("<td><input type = 'text' name ='dob'></td");
+		
+		out.println("<th><h2>address</h2>");
+		out.println("<td><input type = 'text' name ='address'></td");
+		
+		
+		out.close();
+
+		
+	}
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	
+	
+	}
+
+}

@@ -1,0 +1,26 @@
+package in.co.rays.marksheet;
+
+public class TestMarksheet {
+	public static void main(String[] args) {
+		
+		testAdd();
+	}
+
+	private static void testAdd() {
+		
+	}
+
+	private static void testAdd(int id ,String name,int Rollnumber,int Physics,int Chemistry,int Maths) {
+		
+		testAdd(18,"paras",124,87,78,65);
+		
+		
+		
+	}
+
+	
+		
+	
+
+	
+}

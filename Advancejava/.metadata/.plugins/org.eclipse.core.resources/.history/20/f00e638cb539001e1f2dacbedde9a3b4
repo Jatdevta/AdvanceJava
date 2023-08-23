@@ -1,0 +1,30 @@
+package in.co.rays.model;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+import in.co.rays.bean.LibraryBean;
+import in.co.rays.util.JDBCDataSource;
+
+public class LibraryModel {
+
+	private static void add(LibraryBean bean) throws Exception {
+		
+		Connection con = JDBCDataSource.getConnection();
+		
+	PreparedStatement ps = con.prepareStatement("insert into values(?,?,?,?,?,?)");
+	
+	ps.setInt(1, bean.getId());
+	ps.setString(2, bean.getStudent_name());
+	ps.setInt(3, bean.getFees());
+	ps.setInt(4, bean.getMobile_no());
+	ps.setString(5, bean.getAddress());	
+	ps.setInt(6, bean.getSeat_no());
+	
+	int i = ps.executeUpdate();
+	
+	System.out.println("Data inserted = "+i);
+	}
+	
+}

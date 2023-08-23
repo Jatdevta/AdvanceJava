@@ -1,0 +1,11 @@
+package in.co.rays.bean;
+
+public class LibraryBean {
+
+	private int id;
+	private String student_name;
+	private int fees;
+	private int mobile_no;
+	private String address;
+	private int seat_no;
+}

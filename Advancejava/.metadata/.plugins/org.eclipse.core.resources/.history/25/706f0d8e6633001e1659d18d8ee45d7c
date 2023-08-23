@@ -1,0 +1,21 @@
+package in.co.rays.jdbc;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.Statement;
+
+public class TestTransactionHandling {
+	public static void main(String[] args) throws Exception {
+		Class.forName("com.mysql.cj.jdbc.Driver");
+		 Connection cn = DriverManager.getConnection("jdbc:mysql://localhost:3306/student","root","root");
+		 cn.setAutoCommit(false);
+		 Statement s = cn.createStatement();
+		 int i = s.executeUpdate("insert into result values (4,'ram',100)");
+		 i = s.executeUpdate("insert into result values (5,'krishna',300)");
+		 i = s.executeUpdate("insert into result values (5,'vansh',400)");
+    System.out.println("data insert = "+ i);
+    cn.commit();
+	}
+	
+
+}
